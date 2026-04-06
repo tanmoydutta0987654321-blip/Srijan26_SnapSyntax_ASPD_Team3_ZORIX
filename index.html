@@ -3,172 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZORIX - Instant Grocery Delivery</title>
+    <title>ZORIX Gym Store | Elite Performance & Supplements</title>
+    <meta name="description" content="Premium gym supplements, workout kits, and accessories at ZORIX. Build strength faster with our elite performance products.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-brand">
-                <a href="index.html" class="logo">🛒 ZORIX</a>
-            </div>
-            <div class="navbar-search">
-                <input type="text" id="searchInput" class="search-input" placeholder="Search products...">
-                <button class="search-btn">🔍</button>
-            </div>
-            <ul class="navbar-categories">
-                <li><a href="shop.html">Shop All</a></li>
-                <li><a href="grocery.html">Fast Delivery</a></li>
-                <li><a href="#categories">Categories</a></li>
+<body class="light-mode">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" id="nav-logo">ZORIX<span>.</span></a>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active" data-section="home" id="link-home">Home</a></li>
+                <li><a href="#products" class="nav-link" data-section="products" id="link-products">Products</a></li>
+                <li><a href="#tracking" class="nav-link" data-section="tracking" id="link-tracking">Order Tracking</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact" id="link-contact">Contact</a></li>
             </ul>
-            <div class="navbar-icons">
-                <a href="login.html" class="nav-link">👤 Login</a>
-                <a href="cart.html" class="nav-link cart-link">
-                    🛒 Cart <span class="cart-count" id="cartCount">0</span>
-                </a>
+
+            <div class="nav-actions">
+                <div class="lang-switcher">
+                    <select id="lang-select">
+                        <option value="en">EN</option>
+                        <option value="hi">HI</option>
+                        <option value="bn">BN</option>
+                    </select>
+                </div>
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="cart-icon-container" id="cart-nav-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Slider -->
-    <section class="hero-slider">
-        <div class="slider-container">
-            <div class="slider-wrapper">
-                <div class="slide active" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-                <div class="slide" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
-                <div class="slide" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
-                <div class="slide" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+    <!-- Main Content Area (SPA) -->
+    <main id="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="slideshow" id="hero-slideshow">
+                    <!-- Slides injected by JS -->
+                </div>
+                <div class="slideshow-controls">
+                    <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slideshow-dots" id="slideshow-dots"></div>
             </div>
-            <button class="slider-btn prev">❮</button>
-            <button class="slider-btn next">❯</button>
-            <div class="slider-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-        </div>
-        <div class="slider-content">
-            <h1>Get Fresh Groceries in 10-20 Minutes</h1>
-            <p>Order from ZORIX and enjoy instant delivery to your doorstep</p>
-            <a href="grocery.html" class="cta-btn">Order Now</a>
-        </div>
-    </section>
 
-    <!-- Categories Section -->
-    <section class="categories-section" id="categories">
-        <h2>Shop by Category</h2>
-        <div class="categories-grid">
-            <div class="category-card" onclick="filterByCategory('Kitchen')">
-                <img src="ASSETS/pan.avif" alt="Kitchen" loading="lazy">
-                <h3>Kitchen</h3>
-            </div>
-            <div class="category-card" onclick="filterByCategory('Kids')">
-                <img src="ASSETS/lego.avif" alt="Kids" loading="lazy">
-                <h3>Kids</h3>
-            </div>
-            <div class="category-card" onclick="filterByCategory('Pets')">
-                <img src="ASSETS/pets.webp" alt="Pets" loading="lazy">
-                <h3>Pets</h3>
-            </div>
-            <div class="category-card" onclick="filterByCategory('Gym')">
-                <img src="ASSETS/gym.jpg" alt="Gym" loading="lazy">
-                <h3>Gym</h3>
-            </div>
-            <div class="category-card" onclick="filterByCategory('Fashion')">
-                <img src="ASSETS/jacket.avif" alt="Fashion" loading="lazy">
-                <h3>Fashion</h3>
-            </div>
-            <div class="category-card" onclick="filterByCategory('Electronics')">
-                <img src="ASSETS/mobile.avif" alt="Electronics" loading="lazy">
-                <h3>Electronics</h3>
-            </div>
-            <div class="category-card" onclick="filterByCategory('Mobile')">
-                <img src="ASSETS/bicycle.avif" alt="Mobile" loading="lazy">
-                <h3>Mobile</h3>
-            </div>
-        </div>
-    </section>
-
-    <!-- Promotional Banner Slider -->
-    <section class="promo-slider">
-        <div class="promo-wrapper">
-            <div class="promo-slide active" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                <div class="promo-content">
-                    <h3>Special Offer</h3>
-                    <p>Get 30% Off on First Order</p>
+            <!-- Categories on Home -->
+            <div class="highlights reveal">
+                <div class="container">
+                    <h2 class="section-title" id="txt-explore-cat">Explore Categories</h2>
+                    <div class="category-grid">
+                        <div class="category-card" data-category="Protein">
+                            <img src="./assets/protein.jpg" alt="Protein">
+                            <div class="category-info">
+                                <h3>Protein</h3>
+                                <p>Maximum Growth</p>
+                            </div>
+                        </div>
+                        <div class="category-card" data-category="Workout Kits">
+                            <img src="./assets/dumbbells.jpg" alt="Workout Kits">
+                            <div class="category-info">
+                                <h3>Workout Gear</h3>
+                                <p>Essential Tools</p>
+                            </div>
+                        </div>
+                        <div class="category-card" data-category="Creatine">
+                            <img src="./assets/creatine.jpg" alt="Creatine">
+                            <div class="category-info">
+                                <h3>Pure Creatine</h3>
+                                <p>Explosive Power</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="promo-slide" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                <div class="promo-content">
-                    <h3>Free Shipping</h3>
-                    <p>On Orders Above $50</p>
-                </div>
-            </div>
-            <div class="promo-slide" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                <div class="promo-content">
-                    <h3>Loyalty Rewards</h3>
-                    <p>Earn Points on Every Purchase</p>
-                </div>
-            </div>
-        </div>
-        <button class="promo-btn prev">❮</button>
-        <button class="promo-btn next">❯</button>
-    </section>
+        </section>
 
-    <!-- Featured Products -->
-    <section class="featured-products">
-        <h2>Featured Products</h2>
-        <div class="products-grid" id="featuredProducts">
-            <!-- Products will be loaded by JavaScript -->
-        </div>
-    </section>
+        <!-- Products Section -->
+        <section id="products" class="section">
+            <div class="container">
+                <h2 class="section-title reveal" id="txt-our-products">Our Products</h2>
+                <div class="product-filters reveal">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="Protein">Protein</button>
+                    <button class="filter-btn" data-filter="Creatine">Creatine</button>
+                    <button class="filter-btn" data-filter="Supplements">Supplements</button>
+                    <button class="filter-btn" data-filter="Workout Kits">Workout Gear</button>
+                </div>
+                <div class="product-grid" id="product-list">
+                    <!-- Products will be injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section id="cart" class="section">
+            <div class="container">
+                <h2 class="section-title reveal" id="txt-your-cart">Your Cart</h2>
+                <div class="cart-container reveal">
+                    <div class="cart-items" id="cart-items-list">
+                        <!-- Cart items injected by JS -->
+                    </div>
+                    <div class="cart-summary">
+                        <h3>Summary</h3>
+                        <div class="summary-line">
+                            <span id="txt-total">Total:</span>
+                            <span class="total-price" id="cart-total-price">$0.00</span>
+                        </div>
+                        <button class="btn-primary checkout-btn" id="proceed-checkout">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Tracking Section -->
+        <section id="tracking" class="section">
+            <div class="container">
+                <h2 class="section-title reveal" id="txt-track-order">Track Your Order</h2>
+                <div class="tracking-container reveal" id="tracking-content">
+                    <!-- Tracking UI injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info reveal">
+                        <h2 id="txt-get-in-touch">Get in Touch</h2>
+                        <p id="txt-contact-desc">Have questions about our supplements or need training advice? Our team is here to help you reach your goals.</p>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Elite Fitness Ave, Muscle City</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (800) ZORIX-FIT</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@zorixstore.com</span>
+                        </div>
+                    </div>
+                    <form class="contact-form reveal" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="contact-name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contact-email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contact-msg" rows="5" placeholder="How can we help?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" id="btn-send-msg">Send Message</button>
+                        <div id="form-feedback" class="form-feedback"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>About Us</h4>
-                <p>ZORIX is your trusted partner for instant grocery delivery</p>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="grocery.html">Fast Delivery</a></li>
-                    <li><a href="#categories">Categories</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Customer Service</h4>
-                <ul>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Track Order</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#">📘 Facebook</a>
-                    <a href="#">🐦 Twitter</a>
-                    <a href="#">📷 Instagram</a>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo-side">
+                    <a href="#" class="logo">ZORIX<span>.</span></a>
+                    <p>Elevating human performance since 2024.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 id="txt-quick-links">Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#tracking">Tracking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 ZORIX. All rights reserved.</p>
+            <div class="footer-bottom">
+                &copy; 2024 ZORIX Gym Store. All rights reserved.
+            </div>
         </div>
     </footer>
 
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
     <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            initHeroSlider();
-            loadFeaturedProducts();
-            updateCartCount();
-        });
-    </script>
 </body>
 </html>
